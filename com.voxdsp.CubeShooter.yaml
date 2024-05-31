@@ -36,4 +36,4 @@ modules:
     sources:
       - type: git
         url: https://notabug.org/Vandarin/CubeShooter.git
-        commit: 5a7646cd693cbea470862a70cc6d885f80c9e666
+        commit: e41687d35bc627a27e781eed1734f80b6f5f2b72
