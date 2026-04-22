@@ -1,6 +1,6 @@
 app-id: com.voxdsp.CubeShooter
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: cubeshooter
 rename-icon: cubeshooter
@@ -11,6 +11,10 @@ finish-args:
   - --socket=fallback-x11
   - --share=ipc
   - --device=dri
+cleanup:
+  - /include
+  - /lib/cmake
+  - /lib/pkgconfig
 modules:
   - name: glfw
     buildsystem: cmake-ninja
@@ -28,12 +32,14 @@ modules:
   - name: cubeshooter
     buildsystem: simple
     build-commands:
-      - cc main.c glad_gl.c -Ofast -L/app/lib -lglfw -lm -o cubeshooter
+      - cc CubeShooter/main.c CubeShooter/glad_gl.c -Ofast -L/app/lib -lglfw -lm -o cubeshooter
       - install -Dm 0755 cubeshooter -t ${FLATPAK_DEST}/bin
-      - install -Dm 0644 flatpak/cubeshooter.desktop ${FLATPAK_DEST}/share/applications/cubeshooter.desktop
-      - install -Dm 0644 flatpak/cubeshooter.appdata.xml ${FLATPAK_DEST}/share/metainfo/cubeshooter.appdata.xml
-      - install -Dm 0644 flatpak/cubeshooter.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/cubeshooter.png
+      - install -Dm 0644 CubeShooter/flatpak/cubeshooter.desktop ${FLATPAK_DEST}/share/applications/cubeshooter.desktop
+      - install -Dm 0644 CubeShooter/flatpak/cubeshooter.appdata.xml ${FLATPAK_DEST}/share/metainfo/cubeshooter.appdata.xml
+      - install -Dm 0644 CubeShooter/flatpak/cubeshooter.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/cubeshooter.png
     sources:
       - type: git
-        url: https://notabug.org/Vandarin/CubeShooter.git
-        commit: e41687d35bc627a27e781eed1734f80b6f5f2b72
+        url: https://github.com/mrbid/NotABug-Mirror.git
+        commit: 9783867161be015ec0f46c9ec19c758716d566f0
+      - type: patch
+        path: fix-appdata.patch
