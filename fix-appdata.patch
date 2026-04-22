@@ -1,0 +1,52 @@
+From 7a70d5a360b0790ffe635d87199c6724a64b794e Mon Sep 17 00:00:00 2001
+From: Sabri Ünal <yakushabb@gmail.com>
+Date: Wed, 22 Apr 2026 16:04:46 +0300
+Subject: [PATCH] Fix appdata paper cuts
+
+Signed-off-by: Sabri Ünal <yakushabb@gmail.com>
+---
+ CubeShooter/flatpak/cubeshooter.appdata.xml | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
+
+diff --git a/CubeShooter/flatpak/cubeshooter.appdata.xml b/CubeShooter/flatpak/cubeshooter.appdata.xml
+index a0a887d..fa285ec 100644
+--- a/CubeShooter/flatpak/cubeshooter.appdata.xml
++++ b/CubeShooter/flatpak/cubeshooter.appdata.xml
+@@ -1,20 +1,28 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+-<application>
+-	<id type="desktop">cubeshooter.desktop</id>
++<component type="desktop">
++	<id>cubeshooter.desktop</id>
+ 	<metadata_license>CC-BY-4.0</metadata_license>
+ 	<project_license>GPL-2.0-only</project_license>
+ 	<name>CubeShooter</name>
+ 	<summary>3D Arcade sTyle shoOter</summary>
+ 	<description>
+ 		<p>Just move around your mouse or you can use your keyboard, just click to toggle between mouse and keyboard control.</p>
+ 		<p>When not in mouse mode just use the keyboard arrow keys to move and spacebar to shoot. Press 'R' to reset the game.</p>
+ 	</description>
+ 	<screenshots>
+-		<screenshot>https://dashboard.snapcraft.io/site_media/appmedia/2021/12/Screenshot_2021-12-27_09-20-59.png</screenshot>
++		<screenshot type="default">
++      <image>https://imgproxy.flathub.org/insecure/dpr:2/f:avif/rs:fill-down/aHR0cHM6Ly9kbC5mbGF0aHViLm9yZy9tZWRpYS9jb20vdm94ZHNwL0N1YmVTaG9vdGVyLzJkODZlOTlkOTFiYWYwM2I4MDU0YTkyNzFkYTkwNDhlL3NjcmVlbnNob3RzL2ltYWdlLTFfb3JpZy5wbmc</image>
++    </screenshot>
+ 	</screenshots>
+-	<url type="homepage">https://notabug.org/Vandarin/CubeShooter</url>
++  <url type="homepage">https://github.com/mrbid/NotABug-Mirror/</url>
++  <url type="bugtracker">https://github.com/mrbid/NotABug-Mirror/issues</url>
++  <url type="vcs-browser">https://github.com/mrbid/NotABug-Mirror/tree/main/CubeShooter</url>
++  <developer id="com.voxdsp">
++    <name>James William Fletcher</name>
++  </developer>
+ 	<releases>
+ 		<release version="3.0" date="2023-11-06" />
+ 	</releases>
+-	<content_rating type="oars-1.0" />
+-</application>
++  <content_rating type="oars-1.1" />
++  <launchable type="desktop-id">cubeshooter.desktop</launchable>
++</component>
+--
+libgit2 1.7.2
+
